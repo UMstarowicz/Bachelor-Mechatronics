@@ -1,0 +1,11 @@
+Indices = randperm(length(DATA));
+DATA_permutated = DATA(:,Indices)
+TR_number = ceil(length(DATA)*0.5);
+VA_number = ceil(length(DATA)*0.25);
+TE_number = ceil(length(DATA)*0.25);
+TR_DATA = DATA_permutated(:,1:TR_number);
+VA_DATA = DATA_permutated(:,TR_number+1:TR_number+VA_number);
+TE_DATA = DATA_permutated(:,TR_number+VA_number+1:end);
+save TR_DATA TR_DATA
+save VA_DATA VA_DATA
+save TE_DATA TE_DATA
